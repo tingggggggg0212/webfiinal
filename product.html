@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品詳細資訊 | Stride & Co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .product-detail-container {
+            display: flex;
+            gap: 4rem;
+            margin-top: 4rem;
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .product-gallery {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .product-info-detail {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category-label {
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title-lg {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .product-price-lg {
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .size-selector {
+            margin-bottom: 2rem;
+        }
+
+        .size-selector h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .size-grid {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .size-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-btn:hover, .size-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand"><a href="index.html">Stride & Co</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="category_casual.html">休閒運動</a></li>
+            <li><a href="category_formal.html">正式商務</a></li>
+            <li><a href="category_outdoor.html">機能戶外</a></li>
+            <li><a href="category_home.html">居家輕便</a></li>
+            <li><a href="category_accessories.html">配件</a></li>
+            <li><a href="about.html">關於我們</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="product-detail-container">
+            <div class="product-gallery">
+                <div class="main-image">Product Image</div>
+            </div>
+            
+            <div class="product-info-detail">
+                <div class="product-category-label">精選商品</div>
+                <h1 class="product-title-lg" id="dynamic-title">Premium 鞋履</h1>
+                <div class="product-price-lg" id="dynamic-price">NT$ 0</div>
+                
+                <p class="product-description">
+                    採用最頂級的材料打造，結合人體工學設計與現代美學。提供您無與倫比的舒適感與絕佳的支撐力，適合全天候穿著。
+                </p>
+
+                <div class="size-selector">
+                    <h4>選擇尺寸 (US)</h4>
+                    <div class="size-grid">
+                        <button class="size-btn">7</button>
+                        <button class="size-btn">7.5</button>
+                        <button class="size-btn">8</button>
+                        <button class="size-btn active">8.5</button>
+                        <button class="size-btn">9</button>
+                        <button class="size-btn">9.5</button>
+                        <button class="size-btn">10</button>
+                        <button class="size-btn">10.5</button>
+                        <button class="size-btn">11</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary add-to-cart" onclick="alert('已加入購物車！')">加入購物車</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Stride & Co. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple script to update title based on URL parameter for demo purposes
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        
+        const titleEl = document.getElementById('dynamic-title');
+        const priceEl = document.getElementById('dynamic-price');
+        
+        if (productId) {
+            if (productId.includes('casual')) { titleEl.innerText = '休閒運動鞋款'; priceEl.innerText = 'NT$ 3,280'; }
+            if (productId.includes('formal')) { titleEl.innerText = '經典手工皮鞋'; priceEl.innerText = 'NT$ 5,600'; }
+            if (productId.includes('outdoor')) { titleEl.innerText = '機能越野登山鞋'; priceEl.innerText = 'NT$ 4,800'; }
+            if (productId.includes('home')) { titleEl.innerText = '舒適居家拖鞋'; priceEl.innerText = 'NT$ 980'; }
+            if (productId.includes('acc')) { titleEl.innerText = '質感鞋履配件'; priceEl.innerText = 'NT$ 650'; }
+        }
+
+        // Size button selection logic
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
