@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import os
 
@@ -17,13 +18,18 @@ products = [
     { "id": 13, "name": "專業加厚緩震運動襪", "cat": "accessories", "price": "450", "img": "assets/images/accessories_socks_1781568712906.png", "desc": "保護雙腳，提升運動表現。" },
     { "id": 14, "name": "人體工學記憶海綿鞋墊", "cat": "accessories", "price": "650", "img": "assets/images/accessories_insoles_1781568724190.png", "desc": "舒緩足部壓力，適合長時間行走。" },
     { "id": 15, "name": "炫彩高韌性鞋帶組", "cat": "accessories", "price": "200", "img": "assets/images/accessories_shoelaces_1781568734651.png", "desc": "為愛鞋換上新裝，展現個人特色。" },
-    { "id": 16, "name": "頂級鞋履保養清潔組", "cat": "accessories", "price": "1,500", "img": "assets/images/accessories_care_kit_1781568748448.png", "desc": "延長愛鞋壽命，隨時保持最佳狀態。" }
+    { "id": 16, "name": "頂級鞋履保養清潔組", "cat": "accessories", "price": "1,500", "img": "assets/images/accessories_care_kit_1781568748448.png", "desc": "延長愛鞋壽命，隨時保持最佳狀態。" },
+    { "id": 17, "name": "重裝防護鋼頭鞋", "cat": "work", "price": "4,200", "img": "assets/images/work_steel_toe.png", "desc": "高強度鋼頭防護，防刺穿大底，保障高風險環境下的足部安全。" },
+    { "id": 18, "name": "防滑專業廚師鞋", "cat": "work", "price": "1,800", "img": "assets/images/work_chef_shoe.png", "desc": "防水橡膠一體成型，強效防滑底紋，無後跟帶設計方便快速穿脫。" },
+    { "id": 19, "name": "醫療舒適護士鞋", "cat": "work", "price": "2,200", "img": "assets/images/work_nurse_shoe.png", "desc": "純白潔淨，極致輕量化，方便穿脫與清潔，醫療護理人員首選。" },
+    { "id": 20, "name": "極致緩震久站鞋", "cat": "work", "price": "3,600", "img": "assets/images/work_standing_shoe.png", "desc": "空姐制服專屬款式，正式粗跟包鞋外觀，內置隱形氣墊與加厚紓壓結構，長時間站立不疲勞。" }
 ]
 
 categories = {
     "casual": { "title": "休閒運動", "file": "casual.html" },
     "formal": { "title": "正式商務", "file": "formal.html" },
     "outdoor": { "title": "機能戶外", "file": "outdoor.html" },
+    "work": { "title": "工作用鞋", "file": "work.html" },
     "home": { "title": "居家輕便", "file": "home.html" },
     "accessories": { "title": "配件類", "file": "accessories.html" }
 }
@@ -38,10 +44,12 @@ nav_html = """
             </a>
             <nav class="nav-links">
                 <a href="index.html">首頁</a>
+                <a href="philosophy.html">品牌理念</a>
                 <a href="about.html">公司簡介</a>
                 <a href="casual.html">休閒運動</a>
                 <a href="formal.html">正式商務</a>
                 <a href="outdoor.html">機能戶外</a>
+                <a href="work.html">工作用鞋</a>
                 <a href="home.html">居家輕便</a>
                 <a href="accessories.html">配件類</a>
                 <a href="contact.html">聯絡我們</a>
@@ -337,4 +345,69 @@ contact_html = get_header("聯絡我們") + f"""
 {footer_html}"""
 write_file("contact.html", contact_html)
 
-print("All HTML files regenerated successfully with EXACT product data and images.")
+
+# Generate Philosophy Page
+philosophy_content = """
+        <!-- ================= 新增的品牌介紹區塊開始 ================= -->
+        
+        <!-- 品牌簡介 / 關於我們 (白底) -->
+        <section style="padding: 80px 20px; background-color: #ffffff;">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2rem; color: #1a1a1a; margin-top: 0; margin-bottom: 20px; letter-spacing: 1px;">遇見 SoleMate，遇見你的命定之鞋</h2>
+                <div style="width: 50px; height: 3px; background-color: #1a1a1a; margin: 0 auto 40px;"></div>
+                
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
+                    我們始終相信，一雙好鞋不只是日常的穿搭配件，更是支撐你探索世界的「靈魂伴侶（Soulmate）」。在 SoleMate，我們致力於打破「美麗與舒適無法兼具」的迷思。我們深知現代人常受足部問題困擾，因此作為專業的【拇指外翻 鞋子 專賣店】，我們的團隊走訪各地，尋找最頂級的皮革與創新材質，並結合符合亞洲人腳型的【寬楦 運動 鞋】精準設計，為您打造出無可挑惕的頂級鞋履。我們更貼心研發了【足底筋膜炎 專用鞋款】，讓正在尋找舒緩【腳底筋膜炎 鞋子】的您，能重新找回步行的純粹愉悅。
+                </p>
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.8; text-align: justify; margin-bottom: 0;">
+                    無論是穿梭於職場的自信步伐、週末漫步的愜意時光，或是尋覓高質感【大尺碼 男鞋】的品味人士，SoleMate 都將以最高規格的包覆與支撐，溫柔承接您的每一次起步與駐足。若您熱愛戶外探索與日常漫步，我們的【溯溪 鞋 推薦】系列與【走路 鞋 推薦】指南，定能滿足您的全方位需求。
+                </p>
+            </div>
+        </section>
+
+        <!-- 品牌核心價值 卡片設計 (淺灰底，延續您商品的卡片風格) -->
+        <section style="padding: 80px 20px; background-color: #f8f9fa;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; color: #1a1a1a; text-align: center; margin-top: 0; margin-bottom: 15px;">品牌核心價值</h2>
+                <p style="text-align: center; color: #7f8c8d; margin-bottom: 50px; font-size: 1.1rem;">為了呈現真正的「頂級」，我們在三個層面做到極致：</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                    <!-- 卡片 1 -->
+                    <div style="flex: 1 1 300px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+                        <h3 style="font-size: 1.3rem; color: #2c3e50; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">◆ 頂級匠心工藝</h3>
+                        <p style="color: #666; line-height: 1.7; text-align: justify; margin: 0; font-size: 1.05rem;">拒絕大量製造的粗糙，我們堅持採用高規格的製鞋工法。從皮料的篩選、裁切到縫製，每一道工序都傾注了職人對品質的無聲承諾。不只是時尚鞋款，就連需要高度防護的【鋼頭 鞋 推薦】首選與重工業適用的【鋼頭 安全 鞋】，都能經得起時間與極端環境的嚴苛考驗。</p>
+                    </div>
+                    <!-- 卡片 2 -->
+                    <div style="flex: 1 1 300px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+                        <h3 style="font-size: 1.3rem; color: #2c3e50; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">◆ 為雙足而生的極致舒適</h3>
+                        <p style="color: #666; line-height: 1.7; text-align: justify; margin: 0; font-size: 1.05rem;">完美契合，是我們的定義。我們深知許多職業的需求，特別打造了【適合 久站 鞋子】的機能系列；無論是需要【防滑 工作 鞋】的廚師、尋覓【餐飲業 久站 鞋子】的服務人員、需要【護士 鞋 推薦】的醫護人員，還是各行各業尋求【工作 鞋 推薦】的職人，讓您即使久站，依然能感受如履雲端般的輕盈。熱愛運動的您，也能找到高包覆性的【無鞋帶 運動 鞋】及【慢跑 鞋 推薦 男】與【慢跑 鞋 推薦 女】專業跑鞋。</p>
+                    </div>
+                    <!-- 卡片 3 -->
+                    <div style="flex: 1 1 300px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+                        <h3 style="font-size: 1.3rem; color: #2c3e50; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">◆ 跨越時間的雋永設計</h3>
+                        <p style="color: #666; line-height: 1.7; text-align: justify; margin: 0; font-size: 1.05rem;">真正的經典不會隨著季節褪色。我們捨棄盲目追逐短暫的流行，專注於俐落的剪裁與內斂的細節。無論是討論度極高的【樂福鞋 推薦 dcard】熱門款式、復古優雅的【瑪莉珍 鞋 穿搭】提案、修飾身形的【粗跟 高跟鞋】，或是引領街頭潮流的【老爹 鞋 推薦】精選，都能無縫融入您的衣櫥。除了成人款式，更推出了保護發育中雙腳的【兒童 籃球 鞋】，全面照顧全家人的足下時尚。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行動呼籲 Call to Action (深色底，呼應您的 Hero Section) -->
+        <section style="padding: 100px 20px; background-color: #0f1115; color: #ffffff; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2.2rem; margin-top: 0; margin-bottom: 20px; color: #ffffff;">準備好迎接您的專屬舒適了嗎？</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 40px;">不再為磨腳而妥協，不再為挑選而苦惱。<br>現在就開始探索 SoleMate 的精選系列，找到那雙懂你、挺你、完美契合你的專屬鞋履。<br>結帳前，也別忘了帶上我們獨家研發的【鞋子 防水 噴霧】，為您的愛鞋提供最完善的全天候防護。</p>
+                <!-- 這裡的按鈕我有加上您原本 css 裡的 .btn class -->
+                <a href="casual.html" class="btn" style="display: inline-block; background-color: #ffffff; color: #0f1115; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem;">探索全系列鞋款</a>
+            </div>
+        </section>
+        
+        <!-- ================= 新增的品牌介紹區塊結束 ================= -->
+"""
+philosophy_html = get_header("品牌理念") + f"""
+    <main class="animate-fade-in">{philosophy_content}
+    </main>
+""" + footer_html
+write_file("philosophy.html", philosophy_html)
+
+print("All HTML files regenerated successfully")
+
