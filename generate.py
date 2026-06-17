@@ -112,7 +112,23 @@ def write_file(filename, content):
         f.write(content)
 
 # Update index.html
-index_html = get_header("SoleMate | 頂級鞋履") + f"""
+index_header = f"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="嚴選潮流球鞋、舒適休閒鞋與商務皮鞋的鞋類電商網站，高品質、舒適百搭">
+    <meta name="keywords" content="潮流球鞋,休閒鞋,商務皮鞋,樂福鞋,鞋帶,高品質,舒適百搭">
+
+    <title>SoleMate | 頂級鞋履-北科大</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+{nav_html}"""
+
+index_html = index_header + f"""
     <main>
         <section class="hero animate-fade-in" style="background: linear-gradient(rgba(15, 17, 21, 0.7), rgba(15, 17, 21, 0.9)), url('{products[0]["img"]}') center/cover;">
             <div class="hero-content">
